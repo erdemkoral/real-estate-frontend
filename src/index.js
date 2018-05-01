@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
-import reduxThunk from 'redux-thunk';
+import store from './store/store';
 
 import App from './components/App';
 import Signup from './components/auth/signup';
@@ -10,14 +9,13 @@ import Signin from './components/auth/signin';
 import Signout from './components/auth/signout';
 
 // import { BrowserRouter as Router } from 'react-router-dom';
-import { BrowserRouter as Router, Route, IndexRoute } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
-import rootReducer from './reducers/index';
 
-const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
+
 
 ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(rootReducer)}>
+  <Provider store={store}>
     <Router>
       <div>
         <Route path="/" component={App}/>
