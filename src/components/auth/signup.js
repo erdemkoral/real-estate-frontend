@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
-import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
 class Signup extends Component {
   
-  handleFormSubmit({ name, email, password }) {
-    this.props.signupUser({ name, email, password });
+  handleSubmit(event){
+    event.preventDefault();
+    const { name, email, password } = event.target.elements;
+    this.props.signupUser(
+      { 
+        name: name.value,
+        email: email.value,
+        password: password.value
+      });
   }
 
   renderAlert() {
@@ -18,37 +24,21 @@ class Signup extends Component {
       );
     }
   }
-  renderInput = field => (
-    <div>
-      <input {...field.input} type={field.type} className="form-control" />
-      {field.meta.touched && field.meta.error}
-      <span>{field.meta.error}</span>
-    </div>
-  );
+
   render(){
-    const { handleSubmit } = this.props;
     return(
-      <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+      <form onSubmit={this.handleSubmit.bind(this)}>
         <fieldset className="form-group">
           <label>Name</label>
-          <Field
-            name="name"
-            component={this.renderInput}
-            type="text" />
+          <input name="name" className="form-control" />
         </fieldset>
         <fieldset className="form-group">
           <label>Email</label>
-          <Field
-            name="email"
-            component={this.renderInput}
-            type="email" />
+          <input name="email" className="form-control" />
         </fieldset>
         <fieldset className="form-group">
           <label>Password</label>
-          <Field
-            name="password"
-            component={this.renderInput}
-            type="password" />
+          <input name="password" className="form-control" />
         </fieldset>
         {this.renderAlert()}
         <button action="submit" className="btn btn-primary">Sign In</button>
@@ -61,6 +51,4 @@ function mapStateToProps(state) {
   return { errorMessage: state.auth.error };
 }
   
-export default connect(mapStateToProps, actions)(reduxForm({
-  form: 'signin'
-})(Signup));
+export default connect(mapStateToProps, actions)(Signup);
