@@ -30,6 +30,7 @@ class Header extends Component {
     return (
       <nav className="navbar navbar-expand navbar-dark bg-dark">
         <Link to="/" className="navbar-brand">Real Estate</Link>
+        <Link to="/alllistings" className="navbar-link">View Listings</Link>
         <ul className="nav navbar-nav">
           {this.renderLinks()}
         </ul>
