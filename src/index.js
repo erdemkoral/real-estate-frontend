@@ -12,7 +12,6 @@ import Signout from './components/auth/signout';
 // import { BrowserRouter as Router } from 'react-router-dom';
 import { BrowserRouter as Router, Route, IndexRoute } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
-
 import rootReducer from './reducers/index';
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
