@@ -6,6 +6,7 @@ import reduxThunk from 'redux-thunk';
 
 import App from './components/App';
 import Signin from './components/auth/signin';
+import Signout from './components/auth/signout';
 
 // import { BrowserRouter as Router } from 'react-router-dom';
 import { BrowserRouter as Router, Route, IndexRoute } from 'react-router-dom';
@@ -21,6 +22,7 @@ ReactDOM.render(
       <div>
         <Route path="/" component={App}/>
         <Route path="/signin" component={Signin} />
+        <Route path="/signout" component={Signout} />
       </div>
     </Router>
   </Provider>
