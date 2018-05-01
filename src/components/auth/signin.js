@@ -19,15 +19,15 @@ class Signin extends Component {
     }
   }
 
+  renderInput = field => (
+    <div>
+      <input {...field.input} type={field.type} className="form-control" />
+      {field.meta.touched && field.meta.error}
+      <span>{field.meta.error}</span>
+    </div>
+  );
   render() {
     const { handleSubmit } = this.props;
-    const renderInput = field => (
-      <div>
-        <input {...field.input} type={field.type} className="form-control" />
-        {field.meta.touched && field.meta.error}
-        <span>{field.meta.error}</span>
-      </div>
-    );
 
     return(
       <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
@@ -35,15 +35,15 @@ class Signin extends Component {
           <label>Email</label>
           <Field
             name="email"
-            component={renderInput}
-            type="text" />
+            component={this.renderInput}
+            type="email" />
         </fieldset>
         <fieldset className="form-group">
           <label>Password</label>
           <Field
             name="password"
-            component={renderInput}
-            type="text" />
+            component={this.renderInput}
+            type="password" />
         </fieldset>
         {this.renderAlert()}
         <button action="submit" className="btn btn-primary">Sign In</button>

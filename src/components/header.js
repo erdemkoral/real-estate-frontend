@@ -28,7 +28,7 @@ class Header extends Component {
 
   render() {
     return (
-      <nav className="navbar navbar-light">
+      <nav className="navbar navbar-expand navbar-dark bg-dark">
         <Link to="/" className="navbar-brand">Real Estate</Link>
         <ul className="nav navbar-nav">
           {this.renderLinks()}
