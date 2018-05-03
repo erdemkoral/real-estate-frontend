@@ -3,14 +3,17 @@ import { connect } from 'react-redux';
 import * as actions from './actions';
 
 class Signin extends Component {
+  state={};
   
-  handleSubmit(event){
+ handleChange = ({ target }) =>{ 
+   this.setState({ [target.name]: target.value });
+ } 
+  
+  handleSubmit = (event) => {
     event.preventDefault();
-    const { email, password } = event.target.elements;
-    this.props.signinUser(
-      { 
-        email: email.value,
-        password: password.value
+    this.props.signinUser(this.state)
+      .then(() => {
+        this.props.history.push('/me');
       });
   }
 
@@ -26,18 +29,21 @@ class Signin extends Component {
   
   render() {
     return(
-      <form onSubmit={this.handleSubmit.bind(this)}>
-        <fieldset className="form-group">
-          <label>Email</label>
-          <input name="email" className="form-control" />
-        </fieldset>
-        <fieldset className="form-group">
-          <label>Password</label>
-          <input name="password" className="form-control" />
-        </fieldset>
-        {this.renderAlert()}
-        <button action="submit" className="btn btn-primary">Sign In</button>
-      </form>
+      <div className="container">
+        <form onSubmit={this.handleSubmit}>
+          <div className="form-group" onSubmit={this.handleSubmit}>
+            <label>Email address</label>
+            <input name="email" className="form-control" placeholder="Enter email" onChange={this.handleChange} />
+            <small className="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div className="form-group">
+            <label>Password</label>
+            <input name="password" className="form-control" placeholder="Enter password"onChange={this.handleChange} />
+          </div>
+          {this.renderAlert()}
+          <button action="submit" className="btn btn-primary">Submit</button>
+        </form>
+      </div>
     );
   }
 }

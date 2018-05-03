@@ -1,8 +1,8 @@
-import { LOAD_LISTINGS, ADD_LISTING, ADD_LISTING_IMAGE } from './constants';
+import { LOAD_USER, ADD_LISTING, ADD_LISTING_IMAGE, UPDATE_LISTING, DELETE_LISTING, DELETE_IMAGE } from './constants';
 
-export default function(state = [], { type, payload }) {
+export default function(state = {}, { type, payload }) {
   switch(type) {
-    case LOAD_LISTINGS:
+    case LOAD_USER:
       return payload ;
     case ADD_LISTING :
       return [

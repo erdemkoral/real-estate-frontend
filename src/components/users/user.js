@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import * as actions from './actions';
 import ImageGallery from 'react-image-gallery';
 
-class AllListings extends Component{
+class User extends Component{
 
   componentDidMount(){
-    this.props.loadListings();
+    this.props.loadUser();
   }
 
   render(){
@@ -45,7 +45,7 @@ class AllListings extends Component{
 }
 
 function mapStateToProps(state){
-  return { listings: state.listings };
+  return { user: state.user };
 }
 
-export default connect(mapStateToProps, actions)(AllListings);
+export default connect(mapStateToProps, actions)(User);

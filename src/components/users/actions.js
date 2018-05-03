@@ -1,13 +1,13 @@
 import axios from 'axios';
-import { LOAD_LISTINGS, ADD_LISTING, ADD_LISTING_IMAGE } from './constants';
+import { LOAD_USER, ADD_LISTING, ADD_LISTING_IMAGE, UPDATE_LISTING, DELETE_LISTING, DELETE_IMAGE  } from './constants';
 const ROOT_URL = 'http://localhost:3001/api';
 
-export function loadListings() {
+export function loadUser() {
   return function(dispatch) {
     axios.get(`${ROOT_URL}/listings`)
       .then(response => {
         dispatch({
-          type: LOAD_LISTINGS,
+          type: LOAD_USER,
           payload: response.data
         });
       })

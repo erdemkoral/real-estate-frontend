@@ -1,2 +1,3 @@
 export const LOAD_LISTINGS = 'LOAD_LISTINGS';
 export const ADD_LISTING = 'ADD_LIST';
+export const ADD_LISTING_IMAGE = 'ADD_LIST_IMAGE';
