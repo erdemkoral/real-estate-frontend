@@ -16,7 +16,7 @@ export default function(state = [], { type, payload }) {
     case DELETE_LISTING:
       return { success: true };
     case UPDATE_LISTING:
-      return state.map(user => user._id === payload._id ? { ...user, ...payload } : user);
+      return state.map(listing => listing._id === payload._id ? { ...listing, ...payload } : listing);
     default:
       return state;
   }
