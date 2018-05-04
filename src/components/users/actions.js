@@ -1,43 +1,15 @@
 import axios from 'axios';
-import { LOAD_USER, ADD_LISTING, ADD_LISTING_IMAGE, UPDATE_LISTING, DELETE_LISTING, DELETE_IMAGE  } from './constants';
+import { LOAD_USER } from './constants';
 const ROOT_URL = 'http://localhost:3001/api';
 
 export function loadUser() {
   return function(dispatch) {
-    axios.get(`${ROOT_URL}/listings`)
+    axios.get(`${ROOT_URL}/auth/me`, {
+      headers: { authorization: localStorage.getItem('token')
+      } })
       .then(response => {
         dispatch({
           type: LOAD_USER,
-          payload: response.data
-        });
-      })
-      .catch();
-  };
-}
-
-export function addListing(data) {
-  return function(dispatch) {
-    axios.post(`${ROOT_URL}/listings`, data, {
-      headers: { authorization: localStorage.getItem('token') }
-    })
-      .then(response => {
-        dispatch({
-          type: ADD_LISTING,
-          payload: response.data
-        });
-      })
-      .catch();
-  };
-}
-
-export function addListingImage(id, image) {
-  return function(dispatch) {
-    axios.post(`${ROOT_URL}/listings/${id}/images`, image, {
-      headers: { authorization: localStorage.getItem('token') }
-    })
-      .then(response => {
-        dispatch({
-          type: ADD_LISTING_IMAGE,
           payload: response.data
         });
       })

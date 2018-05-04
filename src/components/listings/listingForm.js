@@ -11,7 +11,14 @@ class ListingForm extends Component {
   
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.addListing(this.state);
+    const id = this.props.updateId;
+    if(this.props.editing){
+      this.props.updateListing(id, this.state)
+        .then(()=> this.props.history.push('/mylistings'));
+    }else{
+      this.props.addListing(this.state)
+        .then(()=> this.props.history.push('/mylistings'));
+    }
   }
 
   handleImgPost = event => {
@@ -25,8 +32,12 @@ class ListingForm extends Component {
   render() {
     return(
       <div className="container">
-        <form className="listing-form" onSubmit={this.handleSubmit}>
-          <h3> Upload New Listing</h3>
+        <form className="listing-form" onSubmit={this.handleSubmit} >
+          {this.props.editing ?
+            <h3> Update Listing</h3> :
+            <h3> Upload New Listing</h3> 
+          
+          }
           <fieldset className="form-group">
             <label>Street1</label>
             <input name="street1" className="form-control" onChange={this.handleChange} />
@@ -70,6 +81,11 @@ class ListingForm extends Component {
           <fieldset className="form-group">
             <label>Bathrooms</label>
             <input name="bathrooms" className="form-control" onChange={this.handleChange} />
+          </fieldset>
+
+          <fieldset className="form-group">
+            <label>SqFeet</label>
+            <input name="squareFeet" className="form-control" onChange={this.handleChange} />
           </fieldset>
 
           <fieldset className="form-group">

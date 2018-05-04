@@ -13,7 +13,7 @@ class Signup extends Component {
     event.preventDefault();
     this.props.signupUser(this.state)
       .then(() => {
-        this.props.history.push('/me');
+        this.props.history.push('/mylistings');
       });
   }
 

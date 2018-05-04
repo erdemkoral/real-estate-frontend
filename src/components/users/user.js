@@ -1,44 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from './actions';
-import ImageGallery from 'react-image-gallery';
+import ListingForm from '../listings/listingForm';
+import ReactTable from 'react-table';
+import { columns } from './tableOption';
 
 class User extends Component{
+  state={ upload : null }
 
-  componentDidMount(){
+  componentWillMount(){
     this.props.loadUser();
   }
-
+  
   render(){
-    const { listings } = this.props;
-
-    const listData = listings.map(listing => {
-      return (
-        <div className="card" key={listing._id}>
-          <ImageGallery className="card-image-top"
-            showThumbnails={false}
-            showPlayButton={false} 
-            showFullscreenButton={false} 
-            items={listing.images.map(item => {
-              return { original: item.imageURI };
-            }
-            )}>
-          </ImageGallery>
-          <div className="card-body">
-            <p className="card-text">${listing.salesPrice.toLocaleString()} / {listing.bedrooms} Bedroom, {listing.bathrooms} Bathroom</p>
-            <p className="card-text">{listing.bedrooms} Bedroom / {listing.bathrooms} Bathroom</p>
-            <p className="card-text">{listing.street1}, {listing.city}, {listing.state}, {listing.zipCode}</p>
-          </div>
-          <div className="card-footer">
-            <small className="text-muted">Posted on {new Date(listing.date).toLocaleDateString()}</small>
-          </div>
-        </div>
-      );
-    });
-
+   
+    const { user } = this.props;
     return(
-      <div className="container">
-        <div className="card-group">{listData}</div>
+      <div className="container-fluid">
+        <h2>My Listings</h2>
+        {/* {this.state.upload && <ListingForm></ListingForm>} */}
+        <button className="btn btn-primary" onClick={()=> this.props.history.push('/listingform')}>Upload New Listing</button>
+        <ReactTable  defaultPageSize={10} data={user.listings} columns={columns} getTdProps={(state, rowInfo, column, instance) => {
+          return {
+            onClick: (e, handleOriginal) => {
+              this.props.history.push(`/mylistings/${rowInfo.original._id}`);
+            }
+          };
+        }}/>
       </div>
     );
   }

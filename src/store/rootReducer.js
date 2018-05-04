@@ -5,5 +5,6 @@ import user from '../components/users/reducers';
 
 export default combineReducers({
   auth,
-  listings
+  listings,
+  user
 });
