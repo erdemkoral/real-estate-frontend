@@ -1,1 +1,28 @@
 @import "../node_modules/bootstrap/dist/css/bootstrap.css";
+@import "../node_modules/react-image-gallery/styles/scss/image-gallery.scss";
+@import "../node_modules/react-table/react-table.css";
+
+.jumbotron {
+    margin-bottom: 0;
+  }
+
+  .navbar {
+    margin-bottom: 50px;
+    border-radius: 0;
+  }
+
+ .card{
+    padding: 0.5%;
+ }
+ 
+ #myNavbar ul li{
+     display: inline;
+ }
+
+ .listing-form {
+     margin-bottom: 60px;
+ }
+ 
+ img {
+     height: 200px;
+ }

@@ -1,0 +1,6 @@
+export const LOAD_LISTINGS = 'LOAD_LISTINGS';
+export const LOAD_LISTING = 'LOAD_LISTING';
+export const ADD_LISTING = 'ADD_LIST';
+export const ADD_LISTING_IMAGE = 'ADD_LIST_IMAGE';
+export const DELETE_LISTING = 'DELETE_LISTING';
+export const UPDATE_LISTING = 'UPDATE_LISTING';
