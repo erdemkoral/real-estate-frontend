@@ -23,8 +23,6 @@ class Listing extends Component{
 
   render(){
     const { listings } = this.props;
-    console.log(this.props.listings);
-
     const imageGallery = <ImageGallery 
       className="card-image-top"
       showThumbnails={false}
@@ -37,7 +35,7 @@ class Listing extends Component{
     
     return(
       <div className="container">
-        {this.state.editing === true ? <ListingForm editing={true} updateId={this.props.match.params.id}></ListingForm> :
+        {this.state.editing === true ? <ListingForm editing={true} updateId={this.props.match.params.id} history={this.props.history}></ListingForm> :
           <div>
             <div className="row">
               <div className="col-sm-3"></div>

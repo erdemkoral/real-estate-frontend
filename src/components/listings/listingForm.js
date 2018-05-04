@@ -10,6 +10,7 @@ class ListingForm extends Component {
   }  
   
   handleSubmit = (event) => {
+    console.log(this.props);
     event.preventDefault();
     const id = this.props.updateId;
     if(this.props.editing){

@@ -14,7 +14,7 @@ export default function(state = [], { type, payload }) {
     case ADD_LISTING_IMAGE:
       return state.map(list => list._id === payload._id ? { ...list, images: [...list.images, payload.image] } : list);
     case DELETE_LISTING:
-      return { success: true };
+      return state.filter(listing => listing._id !== payload);
     case UPDATE_LISTING:
       return state.map(listing => listing._id === payload._id ? { ...listing, ...payload } : listing);
     default:
