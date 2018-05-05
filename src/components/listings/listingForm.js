@@ -9,6 +9,14 @@ class ListingForm extends Component {
     this.setState({ [target.name]: target.value });
   }  
   
+  componentDidMount() {
+    if(this.props.editing){
+      const newState = { ...this.props.listings };
+      console.log('big ass state', newState);
+      this.setState(newState);
+    }
+  }
+
   handleSubmit = (event) => {
     console.log(this.props);
     event.preventDefault();
@@ -41,67 +49,67 @@ class ListingForm extends Component {
           }
           <fieldset className="form-group">
             <label>Street1</label>
-            <input name="street1" className="form-control" onChange={this.handleChange} />
+            <input name="street1" value={this.state.street1} className="form-control" onChange={this.handleChange} />
           </fieldset>
 
           <fieldset className="form-group">
             <label>Street2</label>
-            <input name="street2" className="form-control" onChange={this.handleChange} />
+            <input name="street2" value={this.state.street2} className="form-control" onChange={this.handleChange} />
           </fieldset>
 
           <fieldset className="form-group">
             <label>City</label>
-            <input name="city" className="form-control" onChange={this.handleChange} />
+            <input name="city" value={this.state.city} className="form-control" onChange={this.handleChange} />
           </fieldset>
 
           <fieldset className="form-group">
             <label>State</label>
-            <input name="state" className="form-control" onChange={this.handleChange} />
+            <input name="state" value={this.state.state} className="form-control" onChange={this.handleChange} />
           </fieldset>
 
           <fieldset className="form-group">
             <label>ZipCode</label>
-            <input name="zipCode" className="form-control" onChange={this.handleChange} />
+            <input name="zipCode" value={this.state.zipCode} className="form-control" onChange={this.handleChange} />
           </fieldset>
 
           <fieldset className="form-group">
             <label>Neighborhood</label>
-            <input name="neighborhood" className="form-control" onChange={this.handleChange} />
+            <input name="neighborhood" value={this.state.neighborhood} className="form-control" onChange={this.handleChange} />
           </fieldset>
 
           <fieldset className="form-group">
             <label>Sales Price</label>
-            <input name="salesPrice" className="form-control" onChange={this.handleChange} />
+            <input name="salesPrice" value={this.state.salesPrice} className="form-control" onChange={this.handleChange} />
           </fieldset>
 
           <fieldset className="form-group">
             <label>Bedrooms</label>
-            <input name="bedrooms" className="form-control" onChange={this.handleChange} />
+            <input name="bedrooms" value={this.state.bedrooms} className="form-control" onChange={this.handleChange} />
           </fieldset>
 
           <fieldset className="form-group">
             <label>Bathrooms</label>
-            <input name="bathrooms" className="form-control" onChange={this.handleChange} />
+            <input name="bathrooms" value={this.state.bathrooms}  className="form-control" onChange={this.handleChange} />
           </fieldset>
 
           <fieldset className="form-group">
             <label>SqFeet</label>
-            <input name="squareFeet" className="form-control" onChange={this.handleChange} />
+            <input name="squareFeet" value={this.state.squareFeet}  className="form-control" onChange={this.handleChange} />
           </fieldset>
 
           <fieldset className="form-group">
             <label>Garage Size</label>
-            <input name="garageSize" className="form-control" onChange={this.handleChange} />
+            <input name="garageSize"  value={this.state.garageSize} className="form-control" onChange={this.handleChange} />
           </fieldset>
 
           <fieldset className="form-group">
             <label>Lot Size</label>
-            <input name="lotSize" className="form-control" onChange={this.handleChange} />
+            <input name="lotSize" value={this.state.lotSize}  className="form-control" onChange={this.handleChange} />
           </fieldset>
 
           <fieldset className="form-group">
             <label>Description</label>
-            <input name="description" className="form-control" onChange={this.handleChange} />
+            <input name="description" value={this.state.description} className="form-control" onChange={this.handleChange} />
           </fieldset>
 
           {/* {this.renderAlert()} */}
