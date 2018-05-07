@@ -12,7 +12,7 @@ class AllListings extends Component{
   render(){
     const { listings } = this.props;
 
-    const listData = listings.map(listing => {
+    const listData = listings ? listings.map(listing => {
       return (
         <div className="card" key={listing._id}>
           <ImageGallery className="card-image-top"
@@ -34,7 +34,9 @@ class AllListings extends Component{
           </div>
         </div>
       );
-    });
+    }) : 
+      <div>There aren't any listings</div>
+    ;
 
     return(
       <div className="container">
