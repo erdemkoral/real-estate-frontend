@@ -29,10 +29,6 @@
     "copy": "rm -rf ../real-estate/public && cp -R ./build ../real-estate/public",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  },
-  "proxy": {
-    "/api": {
-      "target": "http://localhost:3001"
-    }
   }
+  
 }
