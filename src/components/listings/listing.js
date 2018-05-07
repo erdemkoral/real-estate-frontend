@@ -21,6 +21,10 @@ class Listing extends Component{
       });
   }
 
+  handleGoBack = () => {
+    this.props.history.push('/mylistings');
+  }
+
   render(){
     const { listings } = this.props;
     const imageGallery = <ImageGallery 
@@ -63,6 +67,7 @@ class Listing extends Component{
             <div className="row">
               <div className="col-sm-5"></div>
               <div className="col-sm-4">
+                <button className="btn btn-success" onClick={this.handleGoBack}>Go Back</button>
                 <button className="btn btn-danger" onClick={this.handleDelete}>Delete</button>
                 <button className="btn btn-primary" onClick={()=> this.setState({ editing: true })}>Update</button>
               </div>

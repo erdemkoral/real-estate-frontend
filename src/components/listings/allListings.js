@@ -12,7 +12,7 @@ class AllListings extends Component{
   render(){
     const { listings } = this.props;
 
-    const listData = listings ? listings.map(listing => {
+    const listData = listings.length >0 ? listings.map(listing => {
       return (
         <div className="card" key={listing._id}>
           <ImageGallery className="card-image-top"
