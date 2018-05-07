@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { AUTH_USER, AUTH_ERROR, UNAUTH_USER } from './constants';
-
-const ROOT_URL = 'http://localhost:3001/api';
+const ROOT_URL = '/api';
 
 export function signupUser(signupData) {
   return function(dispatch) {

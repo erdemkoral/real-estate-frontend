@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { LOAD_LISTINGS, LOAD_LISTING, ADD_LISTING, ADD_LISTING_IMAGE, DELETE_LISTING, UPDATE_LISTING } from './constants';
-const ROOT_URL = 'http://localhost:3001/api';
+const ROOT_URL = '/api';
 
 export function loadListings() {
   return function(dispatch) {
