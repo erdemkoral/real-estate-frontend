@@ -35,7 +35,7 @@ class ListingForm extends Component {
     const form = event.target;
     const image = new FormData(form);
     form.reset();
-    this.props.addListingImage(this.props.listings[0]._id, image);
+    this.props.addListingImage(this.props.listings._id, image);
   };
   
   render() {
