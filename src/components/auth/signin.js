@@ -6,7 +6,7 @@ class Signin extends Component {
   state={};
   
  handleChange = ({ target }) =>{ 
-   this.setState({ [target.name]: target.value });
+   this.setState({ [target.name]: target.value.toLowerCase() });
  } 
   
   handleSubmit = (event) => {

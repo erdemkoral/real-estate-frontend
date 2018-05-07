@@ -6,19 +6,17 @@ class ListingForm extends Component {
   state={};
     
   handleChange = ({ target }) =>{ 
-    this.setState({ [target.name]: target.value });
+    this.setState({ [target.name]: target.value.toLowerCase() });
   }  
   
   componentDidMount() {
     if(this.props.editing){
       const newState = { ...this.props.listings };
-      console.log('big ass state', newState);
       this.setState(newState);
     }
   }
 
   handleSubmit = (event) => {
-    console.log(this.props);
     event.preventDefault();
     const id = this.props.updateId;
     if(this.props.editing){
@@ -47,9 +45,10 @@ class ListingForm extends Component {
             <h3> Upload New Listing</h3> 
           
           }
+          <small>* Required</small>
           <fieldset className="form-group">
-            <label>Street1</label>
-            <input name="street1" value={this.state.street1} className="form-control" onChange={this.handleChange} />
+            <label>Street1*</label>
+            <input name="street1" required value={this.state.street1} className="form-control" onChange={this.handleChange} />
           </fieldset>
 
           <fieldset className="form-group">
@@ -58,18 +57,18 @@ class ListingForm extends Component {
           </fieldset>
 
           <fieldset className="form-group">
-            <label>City</label>
-            <input name="city" value={this.state.city} className="form-control" onChange={this.handleChange} />
+            <label>City*</label>
+            <input name="city"  required value={this.state.city} className="form-control" onChange={this.handleChange} />
           </fieldset>
 
           <fieldset className="form-group">
-            <label>State</label>
-            <input name="state" value={this.state.state} className="form-control" onChange={this.handleChange} />
+            <label>State*</label>
+            <input name="state" required value={this.state.state} className="form-control" onChange={this.handleChange} />
           </fieldset>
 
           <fieldset className="form-group">
-            <label>ZipCode</label>
-            <input name="zipCode" value={this.state.zipCode} className="form-control" onChange={this.handleChange} />
+            <label>ZipCode*</label>
+            <input name="zipCode" required type="number" value={this.state.zipCode} className="form-control" onChange={this.handleChange} />
           </fieldset>
 
           <fieldset className="form-group">

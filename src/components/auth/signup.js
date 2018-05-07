@@ -6,7 +6,7 @@ class Signup extends Component {
   state={};
   
   handleChange = ({ target }) =>{ 
-    this.setState({ [target.name]: target.value });
+    this.setState({ [target.name]: target.value.toLowercase() });
   } 
 
   handleSubmit = (event) => {
@@ -33,7 +33,7 @@ class Signup extends Component {
         <form onSubmit={this.handleSubmit}>
           <div className="form-group">
             <label>Name</label>
-            <input name="name" className="form-control" placeholder="Enter name"onChange={this.handleChange} />
+            <input name="name" className="form-control" placeholder="Enter name" onChange={this.handleChange} />
           </div>
           <div className="form-group" onSubmit={this.handleSubmit}>
             <label>Email address</label>
